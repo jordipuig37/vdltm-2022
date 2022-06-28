@@ -1,0 +1,42 @@
+{
+    "model": "efficient_x3d_xs",
+    "num_classes": 4,
+
+    "use_cuda": true,
+    "num_workers": 2,
+
+    "clip_duration": 1,
+    "transform_params": {
+        "side_size": 160,
+        "crop_size": 160,
+        "sampling_rate": 12
+    },
+    "video_means": [0.45, 0.45, 0.45],
+    "video_stds": [0.225, 0.225, 0.225],
+
+    "optimizer" : "adam",
+    "learning_rate": 1e-4,
+    "weight_decay": 1e-4,
+    "max_epochs": 50,
+    "patience": 15,
+    "batch_size": 8,
+    "n_trials": 5,
+    "transfer" : true,
+
+    "train_annotation": "/home/usuaris/imatge/jordi.puig.rabat/new_bd2022/annotation-cnt/train.csv",
+    "validation_annotation": "/home/usuaris/imatge/jordi.puig.rabat/new_bd2022/annotation-cnt/validation.csv",
+    "test_annotation": "/home/usuaris/imatge/jordi.puig.rabat/new_bd2022/annotation-cnt/test.csv",
+    "ckpt_folder": "model-checkpoints/",
+    "default_root_dir": "./efficient-x3d-logs/",
+    "trials_result_dir": "trials_results",
+
+    "quantization_aware_training": false,
+    "qat_observer": "histogram",
+
+    "quantize": false,
+    "deployed_models":"deployed-models/",
+
+    "results_folder": "test-results/",
+    "accelerator":"gpu",
+    "strategy": "ddp"
+}
